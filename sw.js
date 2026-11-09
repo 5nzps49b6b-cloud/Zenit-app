@@ -1,5 +1,5 @@
 /* Zenit Offline-Speicher. Bei einer neuen Version die Nummer erhöhen. */
-const CACHE = 'zenit-v3';
+const CACHE = 'zenit-v5';
 const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
