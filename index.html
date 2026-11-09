@@ -6145,6 +6145,52 @@ html:root body #p-g .xfocus .srow input:not(#_):focus{border-color:var(--hot)!im
 html:root body #p-g .xfocus .srow.done input:not(#_),:root body #p-g .xfocus .srow.done .kgst{opacity:1;border-color:color-mix(in srgb,var(--hot) 45%,transparent)!important;background-color:color-mix(in srgb,var(--hot) 10%,transparent)!important;box-shadow:none!important}
 :root body #p-g .xfocus .srow.done .sn{color:var(--hot)}
 :root body #p-g .xfocus .sbtns{margin-top:14px}
+/* ===== 11.0 Accounts ===== */
+html.accon body{overflow:hidden}
+html.accon #tabbar{visibility:hidden}
+#accScr{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top,0px)) 20px calc(24px + env(safe-area-inset-bottom,0px));overflow-y:auto;background:radial-gradient(120% 70% at 85% 0%,rgba(52,44,40,.9),rgba(24,23,24,.94) 55%,rgba(20,19,20,.97));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--fg);animation:accIn .5s ease both}
+#accScr.out{animation:accOut .5s ease forwards;pointer-events:none}
+@keyframes accIn{from{opacity:0}}
+@keyframes accOut{to{opacity:0;transform:scale(1.04)}}
+.accw{width:100%;max-width:380px;margin:auto 0;display:flex;flex-direction:column;gap:14px}
+.acclogo{display:flex;gap:.32em;font:800 15px/1 var(--fx);letter-spacing:.06em;color:var(--hot);margin-bottom:18px}
+.acclogo span{text-shadow:0 0 14px color-mix(in srgb,var(--hot) 70%,transparent);animation:rise .6s cubic-bezier(.2,.8,.2,1) backwards}
+.acclogo span:nth-child(2){animation-delay:.05s}.acclogo span:nth-child(3){animation-delay:.1s}.acclogo span:nth-child(4){animation-delay:.15s}.acclogo span:nth-child(5){animation-delay:.2s}
+:root body .acch{margin:0;font:800 clamp(32px,10vw,42px)/1.02 var(--fx);letter-spacing:-.035em;color:var(--fg)}
+.accsub{margin:-4px 0 6px;font:500 14.5px/1.45 var(--fb);color:var(--mute)}
+.accl{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.accp{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:0 16px 0 12px;border-radius:20px;border:1px solid var(--rule);background:linear-gradient(180deg,rgba(243,241,236,.07),rgba(243,241,236,.03));color:var(--fg);text-align:left;animation:rise .45s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*60ms);transition:border-color .2s,background .2s}
+.accp b{flex:1;font:700 18px/1.2 var(--fb)}
+.accp svg{color:var(--mute)}
+.accp:active{transform:scale(.98);border-color:color-mix(in srgb,var(--hot) 60%,transparent)}
+.acca{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--grad);color:#fff;font:800 19px/1 var(--fx);box-shadow:0 6px 18px -6px color-mix(in srgb,var(--hot) 90%,transparent)}
+.acca.big{width:64px;height:64px;font-size:28px}
+.accme{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.accf{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.accf.shake{animation:accShake .4s cubic-bezier(.36,.07,.19,.97)}
+@keyframes accShake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.accfld{display:flex;flex-direction:column;gap:7px}
+.accfld>span{font:600 11px/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+html:root body .accfld input:not(#_){min-height:56px;padding:0 16px;border-radius:16px;border:1.5px solid rgba(243,241,236,.2)!important;background-color:rgba(243,241,236,.08)!important;font:600 18px/1 var(--fb);color:var(--fg);caret-color:var(--hot);transition:border-color .2s,box-shadow .2s}
+html:root body .accfld input:not(#_):focus{border-color:var(--hot)!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--hot) 22%,transparent);outline:none}
+.accerr{margin:0;min-height:18px;font:600 13.5px/1.35 var(--fb);color:#ff7a6a}
+.accerr:empty{min-height:0;margin-top:-12px}
+.accstay{display:flex;align-items:center;gap:12px;padding:4px 0;font:600 14.5px/1 var(--fb);color:var(--fg);background:none}
+.accgo{min-height:56px!important;font-size:16.5px!important;margin-top:4px}
+.acchint{margin:0;font:500 12.5px/1.4 var(--fb);color:var(--mute);text-align:center}
+.accnew{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin-top:6px;border-radius:16px;border:1px dashed var(--rule);color:var(--mute);font:600 14.5px/1 var(--fb);background:none}
+.accnew:active{color:var(--fg)}
+.acccard .accrow{display:flex;align-items:center;gap:14px}
+.acccard .grow{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.acccard .grow b{font:700 18px/1.2 var(--fb)}
+.acccard .grow small{font:500 12.5px/1.3 var(--fb);color:var(--mute)}
+:root body .acccard .accout{flex:none;width:auto;min-height:40px;padding:0 16px;margin:0;font-size:14px}
+.acclinks{display:flex;gap:18px;margin-top:14px}
+.acclinks .accdl{color:var(--mute)}
+.accpwf{margin-top:16px}
+.accbtns{display:flex;gap:8px}.accbtns .btn{flex:1;margin:0}
+.acccard .idl{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+@media (prefers-reduced-motion:reduce){#accScr,#accScr *{animation:none!important}}
 /* ===== 10.6 Übungs-Chips mit Namen ===== */
 :root body #p-g .xstep{display:flex;flex-wrap:wrap;gap:6px;overflow:visible;margin:16px 0 2px;padding:0;scroll-snap-type:none}
 :root body #p-g .xstep .xpill{width:auto;max-width:100%;height:35px;flex-direction:row;align-items:center;gap:8px;padding:0 14px 0 9px;border-radius:99px;background:rgba(243,241,236,.06);border:1px solid var(--rule);box-shadow:none;transform:none;animation:rise .35s cubic-bezier(.2,.8,.2,1) backwards;transition:background .25s,border-color .25s,opacity .25s}
@@ -6284,7 +6330,7 @@ html.nosky #sky{opacity:0}
 <div id="toast" role="status" hidden></div>
 
 
-<script>
+<script>try{window.claude=undefined}catch(e){}</script><script>
 (function(){
 'use strict';
 document.documentElement.lang='de';
@@ -6352,7 +6398,7 @@ function norm(d){
   if(out.streak){if(out.streak.goal>0&&!out.weekGoal)out.weekGoal=out.streak.goal;delete out.streak;out.__cl=1}
   var OLD=['sleep','day','friends','lock','tplan','activePlan'],BOLD=['h','t','f','g','age','act','plan'],bd=out.body||{};
   if(OLD.some(function(k){return k in out})||BOLD.some(function(k){return k in bd})){
-    try{localStorage.setItem('bodyhub-prebackup',JSON.stringify(d))}catch(e){}
+    try{localStorage.setItem(K('prebackup'),JSON.stringify(d))}catch(e){}
     OLD.forEach(function(k){delete out[k]});BOLD.forEach(function(k){delete bd[k]});out.__cl=1;
   }
   if(Array.isArray(out.wos)&&Array.isArray(out.week)&&out.week.length===7&&('plans' in out)){delete out.plans;out.__cl=1}
@@ -6392,21 +6438,22 @@ function musFix(d){
   if(d.sess&&d.sess.ex)d.sess.ex.forEach(function(e){var f=fx(e.n);if(f){e.n=f.n;e.mus=f.m}});
   d.musFix=1;return true;
 }
-function afterLoad(){if(state.__cl){delete state.__cl;save()}}
+function afterLoad(){if(ACC&&!state.name){state.name=ACC.name;state.__cl=1}if(ACC&&!ACC.legacy&&state.prog===undefined){state.prog={start:ymd(new Date())};state.__cl=1}if(state.__cl){delete state.__cl;save()}}
 function setStatus(t,kind){var el=$('#status');if(t){el.textContent=t;el.className=kind||'';el.hidden=false}else{el.hidden=true;el.className=''}}
 var dirty=false,retryT=0,wasOffline=false;
-function setDirty(v){dirty=v;try{if(v)localStorage.setItem('bodyhub-dirty','1');else{localStorage.removeItem('bodyhub-dirty');localStorage.removeItem('bodyhub-pending')}}catch(e){}}
+function setDirty(v){dirty=v;try{if(v)localStorage.setItem(K('dirty'),'1');else{localStorage.removeItem(K('dirty'));localStorage.removeItem(K('pending'))}}catch(e){}}
 function offlineNote(){
   wasOffline=true;
   setStatus('Offline: Deine Einträge sind auf diesem Gerät gesichert und werden hochgeladen, sobald wieder Netz da ist.','info');
   if(!retryT)retryT=setTimeout(function(){retryT=0;if(dirty)save()},15000);
 }
 async function save(){
+  if(!ACC)return;
   state._t=Date.now();
-  try{if(loaded||localMode){var bs=bakStats(state);if(bs.w+bs.g+bs.s+bs.p>0)localStorage.setItem('bodyhub-copy',JSON.stringify({t:Date.now(),s:state}))}}catch(e){}
-  if(localMode){try{localStorage.setItem('bodyhub-state',JSON.stringify(state));localStorage.setItem('bodyhub-pending',JSON.stringify(state));localStorage.setItem('bodyhub-dirty','1');dirty=true}catch(e){}return}
+  try{if(loaded||localMode){var bs=bakStats(state);if(bs.w+bs.g+bs.s+bs.p>0)localStorage.setItem(K('copy'),JSON.stringify({t:Date.now(),s:state}))}}catch(e){}
+  if(localMode){try{localStorage.setItem(K('state'),JSON.stringify(state));localStorage.setItem(K('pending'),JSON.stringify(state));localStorage.setItem(K('dirty'),'1');dirty=true}catch(e){}return}
   if(!ref)return;
-  dirty=true;try{localStorage.setItem('bodyhub-pending',JSON.stringify(state));localStorage.setItem('bodyhub-dirty','1')}catch(e){}
+  dirty=true;try{localStorage.setItem(K('pending'),JSON.stringify(state));localStorage.setItem(K('dirty'),'1')}catch(e){}
   if(navigator.onLine===false){offlineNote();return}
   if(saving){again=true;return}
   saving=true;
@@ -6824,8 +6871,9 @@ var PG_DEF='2026-10-26',PG_LEN=84;
 var PSCHED='ABCHABCLABCHABCLABCHABCLABC-'+'DEBHDEBLDEBHDEBLDEBHDEBLDEB-'+'DEBHDEBLDEBHDEBLDEBHDEBLDEB-';
 var PSPL={A:{n:'Brust Bizeps Schulter',s:'Brust · Bizeps · Schulter'},B:{n:'Beine Waden Bauch',s:'Beine · Waden · Bauch'},C:{n:'Rücken Trizeps Schulter',s:'Rücken · Trizeps · Schulter'},H:{n:'HIIT Cardio',s:'HIIT 15 min',car:['HIIT Workout',15]},L:{n:'LISS Cardio',s:'LISS 60 min',car:['LISS Cardio',60]},D:{n:'Rücken Schulter Nacken Bizeps',s:'Rücken · Schulter · Nacken · Bizeps + LISS 15',car:['LISS Cardio',15]},E:{n:'Brust Schulter Trizeps',s:'Brust · Schulter · Trizeps'},'-':{n:'',s:'Frei'}};
 var PPH=[{t:'Fundament',d:'Maximalkraft und Hypertrophie'},{t:'Aufbau',d:'Muskelaufbau, mehr Volumen'},{t:'Definition',d:'Fettabbau, intensiver'}];
-function pgInit(){if(state.prog===undefined&&(loaded||localMode)){state.prog={start:PG_DEF};setTimeout(save,0)}return state.prog}
-function pgStart(){var p=state.prog===undefined?{start:PG_DEF}:state.prog;return p&&p.start&&!p.off?parseYmd(p.start):null}
+function pgDef(){return ACC&&!ACC.legacy?ymd(new Date()):PG_DEF}
+function pgInit(){if(state.prog===undefined&&(loaded||localMode)){state.prog={start:pgDef()};setTimeout(save,0)}return state.prog}
+function pgStart(){var p=state.prog===undefined?{start:pgDef()}:state.prog;return p&&p.start&&!p.off?parseYmd(p.start):null}
 function pgIdx(d){var s=pgStart();if(!s)return -1;var n=Math.round((new Date(d.getFullYear(),d.getMonth(),d.getDate())-s)/864e5);return n>=0&&n<PG_LEN?n:-1}
 function pgAt(n){var s=pgStart(),d=new Date(s.getFullYear(),s.getMonth(),s.getDate()+n),c=PSCHED[n],ph=Math.floor(n/28);
   return {n:n+1,i:n,ph:ph,c:c,k:c==='H'||c==='L'?'a':c==='-'?'r':'s',date:ymd(d),d:d}}
@@ -7841,10 +7889,10 @@ function bakParse(txt){
   return {obj:o,st:bakStats(o)};
 }
 function dtxt(ms){var d=new Date(ms);return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes())}
-function localCopy(){try{var c=JSON.parse(localStorage.getItem('bodyhub-copy')||'null');if(c&&c.s&&c.t)return c}catch(e){}return null}
+function localCopy(){try{var c=JSON.parse(localStorage.getItem(K('copy'))||'null');if(c&&c.s&&c.t)return c}catch(e){}return null}
 function hubBak(box){
   var st=bakStats(state),lb=state.lastBackup?new Date(state.lastBackup).getTime():0,days=lb?Math.floor((Date.now()-lb)/864e5):-1,lc=localCopy(),pre=null;
-  try{pre=localStorage.getItem('bodyhub-prebackup')}catch(e){}
+  try{pre=localStorage.getItem(K('prebackup'))}catch(e){}
   var h=hubHead('Sicherung','acc','Account')+'<div class="stack"><div class="card"><div class="label ar" style="--ar:var(--pur)">Daten sichern</div><p class="prev" style="margin:10px 0 0"><b>'+st.w+'</b> Einheiten · <b>'+st.p+'</b> Plan-Übungen. Als Text kopieren und in einer Notiz ablegen.</p>'+
     '<p class="prev" style="margin:8px 0 0">'+(lb?'Letzte Sicherung: <b>'+(days<=0?'heute':'vor '+days+(days===1?' Tag':' Tagen'))+'</b>.':'Du hast noch keine Sicherung gemacht.')+'</p>'+
     '<button class="btn" type="button" id="bakCopy" style="margin-top:14px;width:100%">Alles kopieren</button>'+(bakMsg?'<p class="prev" style="margin:10px 0 0;color:var(--fg)" role="status">'+esc(bakMsg)+'</p>':'')+
@@ -7876,7 +7924,7 @@ function unpackW(w){
 function packState(st){var o=JSON.parse(JSON.stringify(st));if(JSON.stringify(o).length<PACK_AT)return o;o.workouts=(o.workouts||[]).map(packW);o.packed=1;return o}
 /* ---------- Automatische Sicherung in der Cloud ---------- */
 var cloudDb=null,cloudId=null,snaps=null,snapBusy=false;
-function snapRef(i){return cloudDb.doc('data/users/'+cloudId+'/snap'+i)}
+function snapRef(i){return cloudDb.doc('data/users/'+cloudId+'/'+(ACC&&!ACC.legacy?'snap_'+ACC.id+'_':'snap')+i)}
 async function autoSnap(){
   if(!cloudDb||!cloudId||!loaded||snapBusy)return;var st=bakStats(state);if(!(st.w+st.g+st.p))return;
   var now=new Date(),wk=now.getFullYear()+'-'+kwOf(now),slot=kwOf(now)%4;snapBusy=true;
@@ -7898,7 +7946,7 @@ function snapHtml(){
 }
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-snap]');if(!b||!snaps)return;var x=snaps[+b.dataset.snap];if(!x)return;bakPrev={obj:x.s,st:bakStats(x.s)};bakConfirm=false;bakMsg='';renderHub(true);var a=$('#bakAsk');if(a&&a.scrollIntoView)a.scrollIntoView({block:'center'})});
 function bakApply(obj){
-  try{localStorage.setItem('bodyhub-prebackup',JSON.stringify(state))}catch(e){}
+  try{localStorage.setItem(K('prebackup'),JSON.stringify(state))}catch(e){}
   state=norm(obj);delete state.__cl;bakPrev=null;bakConfirm=false;save();renderAll();
 }
 document.addEventListener('click',function(e){
@@ -7921,7 +7969,7 @@ document.addEventListener('click',function(e){
   if(t.closest('#bakAsk')){bakConfirm=true;renderHub(true);return}
   if(t.closest('#bakGo')&&bakPrev){bakApply(bakPrev.obj);toast('Daten wiederhergestellt');renderHub(true);return}
   if(t.closest('#bakLoc')){var c=localCopy();if(c){bakPrev={obj:c.s,st:bakStats(c.s)};bakConfirm=false;bakMsg='';renderHub(true)}return}
-  if(t.closest('#bakUndo')){try{var pr=JSON.parse(localStorage.getItem('bodyhub-prebackup'));bakApply(pr);localStorage.removeItem('bodyhub-prebackup');toast('Alter Stand zurück');renderHub(true)}catch(err){toast('Das ging nicht.')}return}
+  if(t.closest('#bakUndo')){try{var pr=JSON.parse(localStorage.getItem(K('prebackup')));bakApply(pr);localStorage.removeItem(K('prebackup'));toast('Alter Stand zurück');renderHub(true)}catch(err){toast('Das ging nicht.')}return}
 });
 
 var setReset=false;
@@ -7946,7 +7994,7 @@ document.addEventListener('click',function(e){
   var t=e.target;if(!t.closest)return;
   if(t.closest('#setReset1')){setReset=true;renderHub(true);return}
   if(t.closest('#setReset2')){
-    try{localStorage.setItem('bodyhub-prebackup',JSON.stringify(state))}catch(err){}
+    try{localStorage.setItem(K('prebackup'),JSON.stringify(state))}catch(err){}
     var nm=state.name;state=norm({});if(nm)state.name=nm;setReset=false;state.sess=undefined;delete state.sess;save();renderAll();toast('Alles gelöscht');renderHub(true);
   }
 });
@@ -8157,7 +8205,7 @@ function paintBadge(){var b=document.querySelector('.accbtn');if(b)b.classList.t
 function hubAcc(box){
   var t=document.createElement('div');hubSet(t);var ss=t.querySelector('.stack');
   var nEx=exNames('s').length+exNames('a').length;
-  box.innerHTML=hubHead('Account')+'<div class="stack"><button class="card setrow" data-hub="db"><span class="grow"><b>'+ico('db',16)+' Übungsdatenbank</b><small>'+nEx+(nEx===1?' Übung':' Übungen')+' · Verlauf und Rekorde</small></span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>'+(ss?ss.innerHTML:'')+'</div>';
+  box.innerHTML=hubHead('Account')+'<div class="stack">'+accCard()+'<button class="card setrow" data-hub="db"><span class="grow"><b>'+ico('db',16)+' Übungsdatenbank</b><small>'+nEx+(nEx===1?' Übung':' Übungen')+' · Verlauf und Rekorde</small></span><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>'+(ss?ss.innerHTML:'')+'</div>';
 }
 
 /* ---------- Übungsdatenbank ---------- */
@@ -8448,14 +8496,15 @@ setInterval(refreshIfNeeded,60000);
 applySeason();applyTheme();renderAll();go('g');
 var firstSnap=true;
 async function initCloud(){
-  var db=null,us=null,id=null;window.claude=undefined;
+  if(!ACC)return;
+  var db=null,us=null,id=null;
   try{db=(window.claude&&window.claude.use)?await window.claude.use('db'):null}catch(e){db=null}
   try{us=(window.claude&&window.claude.use)?await window.claude.use('user'):null}catch(e){us=null}
   if(db&&us){try{id=await us.id()}catch(e){id=null}}
   if(!db||!id){
     if(!localMode){
       localMode=true;
-      var A=null,B=null;try{A=JSON.parse(localStorage.getItem('bodyhub-state')||'null');B=JSON.parse(localStorage.getItem('bodyhub-pending')||'null')}catch(e){}
+      var A=null,B=null;try{A=JSON.parse(localStorage.getItem(K('state'))||'null');B=JSON.parse(localStorage.getItem(K('pending'))||'null')}catch(e){}
       state=norm(B&&(B._t||0)>((A&&A._t)||0)?B:A);
       loaded=true;renderAll();afterLoad();
     }
@@ -8463,13 +8512,13 @@ async function initCloud(){
     return;
   }
   localMode=false;firstSnap=true;cloudDb=db;cloudId=id;
-  ref=db.doc('data/users/'+id+'/state');
+  ref=db.doc('data/users/'+id+'/'+(ACC.legacy?'state':'state_'+ACC.id));
   ref.onSnapshot(function(snap){
     var remote=norm(snap.exists?snap.data():null);
     if(firstSnap){
       firstSnap=false;
       var pend=null,flag=false;
-      try{pend=JSON.parse(localStorage.getItem('bodyhub-pending')||'null');flag=localStorage.getItem('bodyhub-dirty')==='1'}catch(e){}
+      try{pend=JSON.parse(localStorage.getItem(K('pending'))||'null');flag=localStorage.getItem(K('dirty'))==='1'}catch(e){}
       if(pend&&flag&&(pend._t||0)>(remote._t||0)){state=norm(pend);loaded=true;dirty=true;renderAll();setStatus('');save();setTimeout(autoSnap,6000);return}
       setDirty(false);setStatus('');
       state=remote;loaded=true;renderAll();afterLoad();setTimeout(autoSnap,4000);return;
@@ -8500,28 +8549,135 @@ try{localStorage.removeItem('gymhub-intro')}catch(e){}
     else{p.style.transform='';if(s0)s0.style.removeProperty('--dim');setTimeout(function(){p.style.transition=''},460)}
   });
 })();
-initCloud();
-
-/* ---------- Offline-App: Sicherung als Datei ---------- */
-document.addEventListener('click',async function(e){
-  var b=e.target.closest&&e.target.closest('#bakFile');if(!b)return;
-  var d=new Date(),name='zenit-sicherung-'+d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'.json',txt=bakText(),ok=false;
-  try{var f=new File([txt],name,{type:'application/json'});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Zenit-Sicherung'});ok=true}
-    else{var u=URL.createObjectURL(f),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);ok=true}
-  }catch(err){if(err&&err.name==='AbortError')return}
-  if(ok){state.lastBackup=new Date().toISOString();save();bakMsg='Sicherung erstellt. Leg die Datei in der Dateien-App oder in iCloud Drive ab.'}
-  else bakMsg='Das ging hier nicht. Nimm „Alles kopieren" und leg den Text in einer Notiz ab.';
-  renderHub(true);
+/* ---------- Accounts: Anmelden mit Name + Passwort (pro Gerät) ---------- */
+var ACC=null,accUI={m:'pick',sel:null,err:'',stay:true,busy:false},accSetPw=false,accDel=false;
+function K(x){return ACC&&!ACC.legacy?'zenit-'+ACC.id+'-'+x:'bodyhub-'+x}
+function accList(){try{var L=JSON.parse(localStorage.getItem('zenit-accounts')||'[]');return Array.isArray(L)?L.filter(function(a){return a&&a.id&&a.name&&a.h}):[]}catch(e){return []}}
+function accStore(L){try{localStorage.setItem('zenit-accounts',JSON.stringify(L));return true}catch(e){return false}}
+function accLegacyData(){try{var A=localStorage.getItem('bodyhub-state')||localStorage.getItem('bodyhub-pending');if(!A)return false;var d=JSON.parse(A);return !!(d&&((d.workouts&&d.workouts.length)||d.exlib||d.wos||d.sess))}catch(e){return false}}
+function sha256(s){
+  function R(n,x){return (x>>>n)|(x<<(32-n))}
+  var K2=[],H=[],p=[2],i,j,c=0;
+  for(var n=2;c<64;n++){var pr=true;for(j=0;j<p.length&&p[j]*p[j]<=n;j++)if(n%p[j]===0){pr=false;break}if(n>2&&pr)p.push(n);if(pr){if(c<8)H[c]=(Math.pow(n,1/2)*4294967296)|0;K2[c]=(Math.pow(n,1/3)*4294967296)|0;c++}}
+  var b=unescape(encodeURIComponent(s)),l=b.length*8,w=[];
+  for(i=0;i<b.length;i++)w[i>>2]|=b.charCodeAt(i)<<((3-i%4)*8);
+  w[l>>5]|=0x80<<(24-l%32);w[((l+64>>9)<<4)+15]=l;
+  for(i=0;i<w.length;i+=16){
+    var a=H.slice(0,8),W=[];
+    for(j=0;j<64;j++){
+      if(j<16)W[j]=w[i+j]|0;else{var s0=R(7,W[j-15])^R(18,W[j-15])^(W[j-15]>>>3),s1=R(17,W[j-2])^R(19,W[j-2])^(W[j-2]>>>10);W[j]=(W[j-16]+s0+W[j-7]+s1)|0}
+      var t1=(a[7]+(R(6,a[4])^R(11,a[4])^R(25,a[4]))+((a[4]&a[5])^(~a[4]&a[6]))+K2[j]+W[j])|0,t2=((R(2,a[0])^R(13,a[0])^R(22,a[0]))+((a[0]&a[1])^(a[0]&a[2])^(a[1]&a[2])))|0;
+      a=[(t1+t2)|0].concat(a.slice(0,7));a[4]=(a[4]+t1)|0;
+    }
+    for(j=0;j<8;j++)H[j]=(H[j]+a[j])|0;
+  }
+  var o='';for(i=0;i<8;i++)o+=('00000000'+(H[i]>>>0).toString(16)).slice(-8);return o;
+}
+function accHash(pw,salt){var h=salt+'|'+pw;for(var i=0;i<2000;i++)h=sha256(h+'|'+salt);return h}
+function accSalt(){var a='';try{var u=new Uint8Array(12);crypto.getRandomValues(u);u.forEach(function(x){a+=('0'+x.toString(16)).slice(-2)})}catch(e){a=String(Math.random()).slice(2)+Date.now().toString(36)}return a}
+function accSess(id,stay){try{localStorage.removeItem('zenit-session');sessionStorage.removeItem('zenit-session');if(id)(stay?localStorage:sessionStorage).setItem('zenit-session',id)}catch(e){}}
+function accIni(n){return esc((String(n).trim()[0]||'?').toUpperCase())}
+function accBoot(){
+  var L=accList(),sid=null;try{sid=sessionStorage.getItem('zenit-session')||localStorage.getItem('zenit-session')}catch(e){}
+  var a=L.filter(function(x){return x.id===sid})[0];
+  if(a){ACC=a;initCloud();return}
+  accUI={m:L.length?(L.length===1?'pw':'pick'):'new',sel:L.length===1?L[0].id:null,err:'',stay:true,busy:false};
+  accShow();
+}
+function accShow(){
+  var el=$('#accScr');if(!el){el=document.createElement('div');el.id='accScr';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label','Anmelden');document.body.appendChild(el);document.documentElement.classList.add('accon')}
+  accPaint();
+}
+function accPaint(){
+  var el=$('#accScr');if(!el)return;var L=accList(),U=accUI,h='<div class="accw"><div class="acclogo" aria-hidden="true"><span>Z</span><span>E</span><span>N</span><span>I</span><span>T</span></div>';
+  var stay='<button type="button" class="accstay" role="switch" aria-checked="'+U.stay+'" data-accstay="1"><span class="sw'+(U.stay?' on':'')+'"><i></i></span>Angemeldet bleiben</button>';
+  var err='<p class="accerr" id="accErr" role="alert">'+esc(U.err||'')+'</p>';
+  if(U.m==='pick'){
+    h+='<h1 class="acch">Wer trainiert?</h1><div class="accl">'+L.map(function(a,i){return '<button type="button" class="accp" data-accpick="'+esc(a.id)+'" style="--i:'+i+'"><span class="acca">'+accIni(a.name)+'</span><b>'+esc(a.name)+'</b><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>'}).join('')+'</div>'+
+      '<button type="button" class="accnew" data-accmode="new">'+ico('plus',16)+'Neuer Account</button>';
+  }else if(U.m==='pw'){
+    var a=L.filter(function(x){return x.id===U.sel})[0];if(!a){U.m=L.length?'pick':'new';return accPaint()}
+    h+='<div class="accme"><span class="acca big">'+accIni(a.name)+'</span><h1 class="acch">Hey '+esc(a.name)+'</h1></div>'+
+      '<form class="accf" data-accform="login" autocomplete="on"><input type="text" name="username" autocomplete="username" value="'+esc(a.name)+'" hidden>'+
+      '<label class="accfld"><span>Passwort</span><input type="password" id="accPw" autocomplete="current-password" enterkeyhint="go" required></label>'+err+stay+
+      '<button type="submit" class="btn accgo">Anmelden</button></form>'+
+      (L.length>1?'<button type="button" class="accnew" data-accmode="pick">Anderer Account</button>':'<button type="button" class="accnew" data-accmode="new">'+ico('plus',16)+'Neuer Account</button>');
+  }else{
+    var mig=!L.length&&accLegacyData();
+    h+='<h1 class="acch">'+(L.length?'Neuer Account':'Willkommen')+'</h1><p class="accsub">'+(mig?'Leg deinen Account an. Deine bisherigen Trainings kommen automatisch mit rein.':L.length?'Jeder Account hat seine eigenen Trainings, Pläne und Übungen.':'Leg deinen Account an, dann geht\'s los.')+'</p>'+
+      '<form class="accf" data-accform="new" autocomplete="on">'+
+      '<label class="accfld"><span>Name</span><input type="text" id="accName" maxlength="24" autocomplete="username" autocapitalize="words" enterkeyhint="next" required></label>'+
+      '<label class="accfld"><span>Passwort</span><input type="password" id="accPw" autocomplete="new-password" enterkeyhint="next" minlength="4" required></label>'+
+      '<label class="accfld"><span>Passwort wiederholen</span><input type="password" id="accPw2" autocomplete="new-password" enterkeyhint="go" minlength="4" required></label>'+err+stay+
+      '<button type="submit" class="btn accgo">Account erstellen</button><p class="acchint">Das Passwort bleibt auf diesem Gerät und lässt sich nicht wiederherstellen.</p></form>'+
+      (L.length?'<button type="button" class="accnew" data-accmode="'+(L.length>1?'pick':'pw')+'">Zurück zur Anmeldung</button>':'');
+  }
+  el.innerHTML=h+'</div>';
+  var f=el.querySelector('#accName')||el.querySelector('#accPw');if(f&&!('ontouchstart' in window))setTimeout(function(){try{f.focus()}catch(e){}},60);
+}
+function accFail(t){accUI.err=t;var e=$('#accErr');if(e){e.textContent=t;var f=$('#accScr .accf');if(f){f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake')}}try{navigator.vibrate&&navigator.vibrate([20,40,20])}catch(er){}}
+function accEnter(a){
+  ACC=a;accSess(a.id,accUI.stay);
+  var el=$('#accScr');document.documentElement.classList.remove('accon');
+  if(el){el.classList.add('out');setTimeout(function(){if(el.parentNode)el.remove()},reduceMo()?0:520)}
+  initCloud();
+}
+document.addEventListener('click',function(e){var t=e.target;if(!t.closest||!t.closest('#accScr'))return;var b;
+  if((b=t.closest('[data-accpick]'))){accUI.sel=b.dataset.accpick;accUI.m='pw';accUI.err='';accPaint();return}
+  if((b=t.closest('[data-accmode]'))){accUI.m=b.dataset.accmode;accUI.err='';if(accUI.m==='pw'&&!accUI.sel){var L=accList();accUI.sel=L[0]&&L[0].id}accPaint();return}
+  if(t.closest('[data-accstay]')){accUI.stay=!accUI.stay;var s=t.closest('[data-accstay]');s.setAttribute('aria-checked',accUI.stay);s.querySelector('.sw').classList.toggle('on',accUI.stay);return}
 });
-document.addEventListener('change',function(e){
-  if(e.target.id!=='bakFileIn'||!e.target.files||!e.target.files[0])return;
-  var r=new FileReader();r.onload=function(){var p=bakParse(String(r.result||''));if(!p){bakPrev=null;bakMsg='Diese Datei ist keine gültige Zenit-Sicherung.';renderHub(true);return}bakPrev=p;bakConfirm=false;bakMsg='';renderHub(true);var a=$('#bakAsk');if(a&&a.scrollIntoView)a.scrollIntoView({block:'center'})};
-  r.readAsText(e.target.files[0]);
+document.addEventListener('submit',function(e){var f=e.target;if(!f.closest||!f.closest('#accScr'))return;e.preventDefault();if(accUI.busy)return;
+  var L=accList(),pw=($('#accPw')||{}).value||'';
+  if(f.dataset.accform==='login'){
+    var a=L.filter(function(x){return x.id===accUI.sel})[0];if(!a)return;
+    if(!pw){accFail('Gib dein Passwort ein.');return}
+    accUI.busy=true;setTimeout(function(){accUI.busy=false;if(accHash(pw,a.s)===a.h)accEnter(a);else{accFail('Falsches Passwort.');var p=$('#accPw');if(p){p.value='';p.focus()}}},10);
+    return;
+  }
+  var nm=(($('#accName')||{}).value||'').trim().replace(/\s+/g,' '),pw2=($('#accPw2')||{}).value||'';
+  if(nm.length<2){accFail('Der Name braucht mindestens 2 Zeichen.');return}
+  if(L.some(function(x){return x.name.toLowerCase()===nm.toLowerCase()})){accFail('Den Namen gibt es schon auf diesem Gerät.');return}
+  if(pw.length<4){accFail('Das Passwort braucht mindestens 4 Zeichen.');return}
+  if(pw!==pw2){accFail('Die Passwörter stimmen nicht überein.');return}
+  accUI.busy=true;
+  setTimeout(function(){
+    var salt=accSalt(),a={id:'a'+Date.now().toString(36)+salt.slice(0,4),name:nm,s:salt,h:accHash(pw,salt),c:Date.now()};
+    if(!L.length&&!L.some(function(x){return x.legacy}))a.legacy=1;
+    if(!accStore(L.concat([a]))){accUI.busy=false;accFail('Speichern nicht möglich. Ist der Speicher voll?');return}
+    accUI.busy=false;accUI.newName=nm;accEnter(a);
+  },10);
 });
-/* ---------- Offline-App: Service Worker + dauerhafter Speicher ---------- */
-if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
-try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+function accCard(){
+  if(!ACC)return '';
+  var h='<div class="card acccard"><div class="accrow"><span class="acca">'+accIni(ACC.name)+'</span><span class="grow"><b>'+esc(ACC.name)+'</b><small>Angemeldet</small></span><button type="button" class="btn ghost accout" data-accout="1">Abmelden</button></div>';
+  if(accSetPw)h+='<form class="accf accpwf" data-accpw="1"><input type="text" autocomplete="username" value="'+esc(ACC.name)+'" hidden><label class="accfld"><span>Aktuelles Passwort</span><input type="password" id="accOld" autocomplete="current-password" required></label><label class="accfld"><span>Neues Passwort</span><input type="password" id="accNew" autocomplete="new-password" minlength="4" required></label><p class="accerr" id="accPwErr" role="alert"></p><div class="accbtns"><button type="button" class="btn ghost" data-accpwx="1">Abbrechen</button><button type="submit" class="btn">Speichern</button></div></form>';
+  else h+='<div class="acclinks"><button type="button" class="lnk" data-accpwo="1">Passwort ändern</button>'+(accDel?'':'<button type="button" class="lnk accdl" data-accdel="1">Account löschen</button>')+'</div>';
+  if(accDel)h+='<div class="idl"><span>Account „'+esc(ACC.name)+'“ mit allen Trainings von diesem Gerät löschen?</span><button class="btn" type="button" data-accdel2="1">Ja, endgültig löschen</button><button class="btn ghost" type="button" data-accdelx="1">Abbrechen</button></div>';
+  return h+'</div>';
+}
+function accLogout(){accSess(null);try{location.reload()}catch(e){}}
+document.addEventListener('click',function(e){var t=e.target;if(!t.closest||!ACC)return;
+  if(t.closest('[data-accout]')){if(dirty&&!localMode&&navigator.onLine!==false){save()}accLogout();return}
+  if(t.closest('[data-accpwo]')){accSetPw=true;accDel=false;renderHub(true);var o=$('#accOld');if(o)o.focus();return}
+  if(t.closest('[data-accpwx]')){accSetPw=false;renderHub(true);return}
+  if(t.closest('[data-accdel]')){accDel=true;accSetPw=false;renderHub(true);return}
+  if(t.closest('[data-accdelx]')){accDel=false;renderHub(true);return}
+  if(t.closest('[data-accdel2]')){
+    var id=ACC.id,leg=ACC.legacy;['state','pending','dirty','copy','prebackup'].forEach(function(k){try{localStorage.removeItem(K(k))}catch(er){}});
+    accStore(accList().filter(function(x){return x.id!==id}));
+    if(!leg&&cloudDb&&cloudId){try{cloudDb.doc('data/users/'+cloudId+'/state_'+id).delete()}catch(er){}}
+    accLogout();return;
+  }
+});
+document.addEventListener('submit',function(e){var f=e.target;if(!f.dataset||!f.dataset.accpw||!ACC)return;e.preventDefault();
+  var o=($('#accOld')||{}).value||'',n=($('#accNew')||{}).value||'',er=$('#accPwErr');
+  var L=accList(),a=L.filter(function(x){return x.id===ACC.id})[0];if(!a)return;
+  if(accHash(o,a.s)!==a.h){if(er)er.textContent='Das aktuelle Passwort stimmt nicht.';return}
+  if(n.length<4){if(er)er.textContent='Das neue Passwort braucht mindestens 4 Zeichen.';return}
+  a.s=accSalt();a.h=accHash(n,a.s);accStore(L);ACC=a;accSetPw=false;renderHub(true);toast('Passwort geändert');
+});
+accBoot();
 
 
 /* ---------- Matrix-Gewichtsstapel ---------- */
@@ -8785,15 +8941,36 @@ function bootSky(cv,rm){
   try{var bc=document.getElementById('bootCv');if(bc)bootSky(bc,rm)}catch(e){}
   try{initSky()}catch(e){}
   function end(){if(done)return;done=true;var bb=document.getElementById('bootBar');if(bb)bb.style.width='100%';setTimeout(function(){var sec=document.getElementById('p-'+view);if(sec&&!rm){sec.classList.remove('enter');void sec.offsetWidth;sec.classList.add('enter');setTimeout(function(){sec.classList.remove('enter')},1200)}var PT=pgDay(),md='',phNew=!!(PT&&PT.ph>0&&state.prog&&(state.prog.phs||0)<PT.ph);try{md=localStorage.getItem('zenit-mapday')||''}catch(e){}
-    if(window._bootHand&&!rm&&PT&&(phNew||md!==ymd(new Date()))){try{localStorage.setItem('zenit-mapday',ymd(new Date()))}catch(e){}el.classList.add('hand2');window._bootHand(function(){try{gxOpen({boot:true,phase:phNew})}catch(e){}window._skyOn=1;el.remove()},'map')}else if(window._bootHand&&!rm){el.classList.add('hand');window._bootHand(function(){el.remove()})}else{el.classList.add('out');setTimeout(function(){el.remove()},rm?0:700)}},rm?0:60)}
+    if(ACC&&window._bootHand&&!rm&&PT&&(phNew||md!==ymd(new Date()))){try{localStorage.setItem('zenit-mapday',ymd(new Date()))}catch(e){}el.classList.add('hand2');window._bootHand(function(){try{gxOpen({boot:true,phase:phNew})}catch(e){}window._skyOn=1;el.remove()},'map')}else if(window._bootHand&&!rm){el.classList.add('hand');window._bootHand(function(){el.remove()})}else{el.classList.add('out');setTimeout(function(){el.remove()},rm?0:700)}},rm?0:60)}
   el.addEventListener('click',end);
   (function wait(){
-    if(loaded||localMode){var T=pgDay(),sb=document.getElementById('bootSub');if(sb){sb.textContent=T?'Tag '+pad(T.n)+' / '+PG_LEN+' · Phase '+(T.ph+1):'Bereit';sb.classList.add('on')}setTimeout(end,Math.max(0,MIN-(Date.now()-t0)));return}
+    if(loaded||localMode||!ACC){var T=pgDay(),sb=document.getElementById('bootSub');if(sb){sb.textContent=T?'Tag '+pad(T.n)+' / '+PG_LEN+' · Phase '+(T.ph+1):'Bereit';sb.classList.add('on')}setTimeout(end,Math.max(0,MIN-(Date.now()-t0)));return}
     if(Date.now()-t0>4500){end();return}setTimeout(wait,120);
   })();
 })();
 
 })();
+
+/* ---------- Offline-App: Sicherung als Datei ---------- */
+document.addEventListener('click',async function(e){
+  var b=e.target.closest&&e.target.closest('#bakFile');if(!b)return;
+  var d=new Date(),name='zenit-sicherung-'+d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'.json',txt=bakText(),ok=false;
+  try{var f=new File([txt],name,{type:'application/json'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Zenit-Sicherung'});ok=true}
+    else{var u=URL.createObjectURL(f),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);ok=true}
+  }catch(err){if(err&&err.name==='AbortError')return}
+  if(ok){state.lastBackup=new Date().toISOString();save();bakMsg='Sicherung erstellt. Leg die Datei in der Dateien-App oder in iCloud Drive ab.'}
+  else bakMsg='Das ging hier nicht. Nimm „Alles kopieren" und leg den Text in einer Notiz ab.';
+  renderHub(true);
+});
+document.addEventListener('change',function(e){
+  if(e.target.id!=='bakFileIn'||!e.target.files||!e.target.files[0])return;
+  var r=new FileReader();r.onload=function(){var p=bakParse(String(r.result||''));if(!p){bakPrev=null;bakMsg='Diese Datei ist keine gültige Zenit-Sicherung.';renderHub(true);return}bakPrev=p;bakConfirm=false;bakMsg='';renderHub(true);var a=$('#bakAsk');if(a&&a.scrollIntoView)a.scrollIntoView({block:'center'})};
+  r.readAsText(e.target.files[0]);
+});
+/* ---------- Offline-App: Service Worker + dauerhafter Speicher ---------- */
+if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
 </script>
 
 </body></html>
