@@ -8968,6 +8968,23 @@ document.addEventListener('change',function(e){
   var r=new FileReader();r.onload=function(){var p=bakParse(String(r.result||''));if(!p){bakPrev=null;bakMsg='Diese Datei ist keine gültige Zenit-Sicherung.';renderHub(true);return}bakPrev=p;bakConfirm=false;bakMsg='';renderHub(true);var a=$('#bakAsk');if(a&&a.scrollIntoView)a.scrollIntoView({block:'center'})};
   r.readAsText(e.target.files[0]);
 });
+/* ---------- Offline-App: iOS-Fix gegen schwarzen Balken nach der Tastatur ---------- */
+(function(){
+  var maxH=window.innerHeight;
+  function track(){maxH=Math.max(maxH,window.innerHeight)}
+  function remeasure(){
+    if(maxH-window.innerHeight<=4)return;
+    var y=window.scrollY,b=document.body;
+    b.style.display='none';void b.offsetHeight;b.style.display='';
+    window.scrollTo(0,y);
+    setTimeout(function(){if(maxH-window.innerHeight>4){var r=document.documentElement;r.style.display='none';void r.offsetHeight;r.style.display='';window.scrollTo(0,y)}},120);
+  }
+  window.addEventListener('resize',track);
+  document.addEventListener('focusout',function(e){var t=e.target;if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))setTimeout(remeasure,160)});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(remeasure,200)});
+  window.addEventListener('pageshow',function(){setTimeout(remeasure,200)});
+  window.addEventListener('orientationchange',function(){setTimeout(function(){maxH=window.innerHeight;track()},400)});
+})();
 /* ---------- Offline-App: Service Worker + dauerhafter Speicher ---------- */
 if('serviceWorker' in navigator&&/^https?:/.test(location.protocol)){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
 try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
